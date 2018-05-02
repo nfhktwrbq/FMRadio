@@ -1,15 +1,14 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include <TwoWire.h>
 #include "portability.h"
+#include "RSToTWI.h"
 
 int main(void)
 {
-	TwoWire * twi = &TwoWire::Instance();
-	twi->init();
+	RSToTWI * rstotwi = &RSToTWI::Instance();
 	while(1)
 	{
-		_delay_ms(1000);
+		rstotwi->proc();
 	}
 }
